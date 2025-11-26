@@ -1,4 +1,4 @@
-function criarItemCardapio(titulo){
+function criarItemCardapio(titulo, descricao, foto){
 
     const divItemCardapio = document.createElement('div')
     divItemCardapio.className = 'item-cardapio'
@@ -23,7 +23,7 @@ function criarItemCardapio(titulo){
     divC.appendChild(divItemCardapio)
 }
 
-criarItemCardapio (
+criarItemCardapio(
     'Bolo de Chocolate',
     'Um clássico',
     'https://www.comidaereceitas.com.br/img/sizeswp/1200x675/2020/05/bolo_chocolate_leite.jpg'
