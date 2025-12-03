@@ -23,8 +23,24 @@ function criarItemCardapio(titulo, descricao, foto){
     divC.appendChild(divItemCardapio)
 }
 
-criarItemCardapio(
-    'Bolo de Chocolate',
-    'Um clássico',
-    'https://www.comidaereceitas.com.br/img/sizeswp/1200x675/2020/05/bolo_chocolate_leite.jpg'
-)
+async function getData() {
+  const url = "https://confeitaria-api-imbb.onrender.com/cardapio";
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+    const result = await response.json();
+    for(let i = 0; i < result.length; i++){
+        criarItemCardapio(
+        result.titulo,
+        result.descricao,
+        result.foto
+        )
+    }
+    console.log(result);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
