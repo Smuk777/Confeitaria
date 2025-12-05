@@ -44,3 +44,5 @@ async function getData() {
     console.error(error.message);
   }
 }
+
+getData()
